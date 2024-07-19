@@ -706,17 +706,6 @@ rmse_100_clhs <- perform_repetitions_clhs(raster_df, n_samples, 100)
     }
     return(rmse_values)
   }
-  # Train a new random forest model
-  rf_model <- randomForest(clay_predictions ~ ., data = sample_data)
-  
-  # Predict on the entire dataset (all pixels)
-  predictions <- predict(rf_model, data)
-  
-  # Calculate RMSE on the entire dataset
-  rmse <- sqrt(mean((data$clay_predictions - predictions)^2))
-  
-  return(rmse)
-}
 
 # Number of repetitions
 n_reps <- 25
